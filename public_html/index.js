@@ -55,20 +55,7 @@ function checkBoxPaciente1 (){/*Paciente*/
       }
  }
  
-//function ingresarlogin (){/*Ingreso de Login-Sistema*/	   
-//if(!($("#txtUsuario").val("")) && $("#txtClave").val("")){
-//  if(seguir){
-// if( $("#radMedico").prop('checked') || $("#radPaciente").prop('checked')) { 	
-//        alert("Bienvenido!!!");  
-//    $("#inicioborrar").hide();
-//    $("#tbLogin").hide();
-//    $("#tbGeneral").show();
-//        }      
-//   } 
-//    else {       
-//            alert("Verifique los datos ingresados");
-//    }
-// }
+
 function ingresarLogin (){
     var usuario =$("#txtUsuario").val();
     var clave =$("#txtClave").val();
