@@ -63,14 +63,15 @@ function ingresarLogin (){
         alert("Bienvenido!!!");  
         $("#inicioborrar").hide();
         $("#tbLogin").hide();
-        $("#tbGeneral").show();
-        
+        $("#tbGeneralmedico").hide();
+        $("#tbGeneralpaciente").show();   
     }
     else if (verificoLoginMedico(usuario,clave)){
         alert("Bienvenido!!!");  
         $("#inicioborrar").hide();
         $("#tbLogin").hide();
-        $("#tbGeneral").show();
+        $("#tbGeneralpaciente").hide();
+        $("#tbGeneralmedico").show();  
         
     }
     else{
