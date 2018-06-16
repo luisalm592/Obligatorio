@@ -52,8 +52,8 @@ function checkBoxPaciente1 (){/*Paciente*/
  
 
 function ingresarLogin (){
-    var usuario =$("#txtUsuario").val();
-    var clave =$("#txtClave").val();
+    usuario =$("#txtUsuario").val();//Defino estas dos variables in "var" para que sean globales.
+    clave =$("#txtClave").val();
     
     if (verificoLoginPaciente(usuario,clave)){
         alert("Bienvenido!!!");  
@@ -86,7 +86,6 @@ function cambiarClave (){//Cambiar calve usuario
     var claveActual= $("#txtClaveActual").val();
     var claveNueva = $("#txtClaveNueva").val();
     var repetirClave=$("#txtClaveNuevaRep").val();
-    var clave =$("#txtClave").val();
     var cambiar=false;
     var nueva=false;
     if (claveActual!== clave){
@@ -104,9 +103,42 @@ function cambiarClave (){//Cambiar calve usuario
         $("#err_txtClaveNuevaRep").html("");
         nueva=true;
     }
-    if(cambiar && nueva){
-        clave = claveNueva
+    if(cambiar && nueva && $("#radPaciente").prop('checked')){
+       var pos=0,esta=false;
+        while(pos<=pacientes.length-1 && !esta){
+        var tmpPersona = pacientes[pos];
+        if(tmpPersona['clave'] == clave && tmpPersona['numero'] == usuario){
+            esta=true;
+            tmpPersona['clave']=claveNueva;
+            
+        }
+        pos++
+    }
+        $("#txtClaveNuevaRep").val("");
+        $("#txtClaveActual").val("");
+        $("#txtClaveNueva").val("");
         alert("Cambiaste la clave exitosamente.")
+        
+    }
+    else if (cambiar && nueva && $("#radMedico").prop('checked')){
+        var pos=0,esta=false;
+        while(pos<=medicos.length-1 && !esta){
+        var tmpPersona = medicos[pos];
+        if(tmpPersona['clave'] == clave && tmpPersona['numero'] == usuario){
+            esta=true;
+            tmpPersona['clave']=claveNueva;
+            
+        }
+        pos++
+    }
+        $("#txtClaveNuevaRep").val("");
+        $("#txtClaveActual").val("");
+        $("#txtClaveNueva").val("");
+        alert("Cambiaste la clave exitosamente.")
+        
+    }
+    else{
+        alert("Verifique los datos ingresados")
         
     }
     
