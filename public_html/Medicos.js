@@ -4,10 +4,10 @@
  */
 
 var medicos = [
-                {numero: 12334,
+                {numero:1,
                  nombre:"Alvaro Morata",
                  especialidad:"Medicina General",
-                 clave:"cc147s"
+                 clave:"c"
                 },
                 {numero:2,
                  nombre:"Carlos Saravia",

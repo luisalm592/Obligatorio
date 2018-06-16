@@ -9,7 +9,9 @@ function ftLogin(){
     $("#inicioborrar").show();
     $("#tbCambioclave").hide(); 
     $("#tbCambioMedico").hide(); 
-    $("#tbGeneral").hide(); 
+    $("#tbGeneralpaciente").hide(); 
+    $("#tbGeneralmedico").hide(); 
+    
     
 }
 function ftCambioclave(){

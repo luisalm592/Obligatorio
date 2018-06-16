@@ -6,11 +6,7 @@ var medicos =[];
 function inicializo (){
     $("#txtUsuario").blur(validoUsuario);
     $("#txtClave").blur(validoClave);
-    /*
-    $("#txtClaveActual").blur(validoClave);
-    $("#txtClaveNueva").blur(validoClave);
-    $("#txtClaveNuevaRep").blur(validoClave);
-    */
+   
     $("#radMedico").click(checkBoxMedico);
     $("#radPaciente").click(checkBoxPaciente1);
     $("#btIngresar").click(ingresarLogin);
@@ -59,13 +55,18 @@ function checkBoxPaciente1 (){/*Paciente*/
 function ingresarLogin (){
     var usuario =$("#txtUsuario").val();
     var clave =$("#txtClave").val();
+    
     if (verificoLoginPaciente(usuario,clave)){
         alert("Bienvenido!!!");  
         $("#inicioborrar").hide();
         $("#tbLogin").hide();
         $("#tbGeneralmedico").hide();
         $("#tbGeneralpaciente").show();   
+       
+   
+    
     }
+    
     else if (verificoLoginMedico(usuario,clave)){
         alert("Bienvenido!!!");  
         $("#inicioborrar").hide();
@@ -73,10 +74,13 @@ function ingresarLogin (){
         $("#tbGeneralpaciente").hide();
         $("#tbGeneralmedico").show();  
         
+        
     }
     else{
          alert("Verifique los datos ingresados");  
     }
+    $("#txtUsuario").val("");
+    $("#txtClave").val("");
 }
 
 function cambiarClave (){//Cambiar calve usuario
