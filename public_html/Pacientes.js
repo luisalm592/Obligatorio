@@ -3,10 +3,10 @@
  */
 
 var pacientes =[
-                {documento:42157789,
+                {documento:11,
                  nombre: "Juan Perez",
                  medicoCabecera: 332154,
-                 clave:"a789sd"                  
+                 clave:"cc"                  
                 },
                 {documento: 32148762,
                  nombre: "Maria Fernandez",

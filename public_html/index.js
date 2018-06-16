@@ -6,7 +6,6 @@ var medicos =[];
 function inicializo (){
     $("#txtUsuario").blur(validoUsuario);
     $("#txtClave").blur(validoClave);
-   
     $("#radMedico").click(checkBoxMedico);
     $("#radPaciente").click(checkBoxPaciente1);
     $("#btIngresar").click(ingresarLogin);
