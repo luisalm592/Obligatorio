@@ -34,7 +34,7 @@ function validoClave(){
 }
 
 function checkBoxMedico (){/*Medico*/
-	   /*$("#radPaciente").click(checkBox);*/	
+
            
  if( $("#radMedico").prop('checked',true)) {  
       $("#radPaciente").prop('checked',false);
@@ -89,20 +89,31 @@ function cambiarClave (){//Cambiar calve usuario
     var cambiar=false;
     var nueva=false;
     if (claveActual!== clave){
-       $("#err_txtClaveActual").html("La clave actual no coincide.")
+       $("#err_txtClaveActual").html("La clave actual no coincide..")
     }
     else {
         $("#err_txtClaveActual").html("");
         cambiar=true;
     }
-    if(claveNueva!==repetirClave){
-        $("#err_txtClaveNuevaRep").html("La claves no coinciden")
+    
+    
+    if(claveNueva!==repetirClave || claveNueva==claveActual || claveNueva=="" ){
+        
+        
+        $("#err_txtClaveNuevaRep").html("La claves no coinciden..")
+        $("#err_txtMalClave").html("Recuerde la clave nueva no puede ser la actual..");
         
     }
     else {
+        
         $("#err_txtClaveNuevaRep").html("");
+        $("#err_txtMalClave").html("");
+        
         nueva=true;
     }
+  
+
+    
     if(cambiar && nueva && $("#radPaciente").prop('checked')){
        var pos=0,esta=false;
         while(pos<=pacientes.length-1 && !esta){
@@ -138,7 +149,7 @@ function cambiarClave (){//Cambiar calve usuario
         
     }
     else{
-        alert("Verifique los datos ingresados")
+        alert("Verifique que todos los campos esten completos")
         
     }
     
