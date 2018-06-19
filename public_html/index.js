@@ -10,7 +10,7 @@ function inicializo (){
     $("#radPaciente").click(checkBoxPaciente1);
     $("#btIngresar").click(ingresarLogin);
     $("#btCambiarClave").click(cambiarClave);
-    
+ 
     
 }
 
@@ -34,8 +34,7 @@ function validoClave(){
 }
 
 function checkBoxMedico (){/*Medico*/
-
-           
+         
  if( $("#radMedico").prop('checked',true)) {  
       $("#radPaciente").prop('checked',false);
       
@@ -50,46 +49,76 @@ function checkBoxPaciente1 (){/*Paciente*/
       }
  }
  
+var usuariog =$("#txtUsuario").val();//Defino estas dos variables in "var" para que sean globales.
+var claveg =$("#txtClave").val();
 
 function ingresarLogin (){
-    usuario =$("#txtUsuario").val();//Defino estas dos variables in "var" para que sean globales.
-    clave =$("#txtClave").val();
+
     
+var usuario =$("#txtUsuario").val();//Defino estas dos variables in "var" para que sean globales.
+var clave =$("#txtClave").val();
+
+
     if (verificoLoginPaciente(usuario,clave)){
+        
+         $("#radPaciente").prop('checked',true);
+        
         alert("Bienvenido!!!");  
         $("#inicioborrar").hide();
         $("#tbLogin").hide();
-        $("#tbGeneralmedico").hide();
-        $("#tbGeneralpaciente").show();   
+        $("#tbGeneralmedico").show();
+        $("#menupaciente").show();  
+        $("#menulistarmedico").show(); 
+        $("#menulistarimagenes").show(); 
+        $("#menumedico").hide(); 
+        $("#menulistarpacientes").hide(); 
+        $("#menulistarhistorial").hide(); 
+
+        usuariog=usuario;
+        claveg=clave;
+        
        
-   
-    
+        
     }
-    
+     
     else if (verificoLoginMedico(usuario,clave)){
         alert("Bienvenido!!!");  
         $("#inicioborrar").hide();
         $("#tbLogin").hide();
-        $("#tbGeneralpaciente").hide();
-        $("#tbGeneralmedico").show();  
+        $("#tbGeneralmedico").show(); 
+        $("#menupaciente").hide(); 
+        $("#menumedico").show(); 
+        $("#menulistarmedico").hide(); 
+        $("#menulistarimagenes").hide(); 
+        $("#menulistarpacientes").show(); 
+        $("#menulistarhistorial").show(); 
+    
+        
+        
+        usuariog=usuario;
+        claveg=clave;
         
         
     }
     else{
-         alert("Verifique los datos ingresados");  
+         alert("Verifique usuario o contraseña"); 
+          
     }
     $("#txtUsuario").val("");
     $("#txtClave").val("");
 }
 
+
+
 function cambiarClave (){//Cambiar calve usuario
+    
     var claveActual= $("#txtClaveActual").val();
     var claveNueva = $("#txtClaveNueva").val();
     var repetirClave=$("#txtClaveNuevaRep").val();
     var cambiar=false;
     var nueva=false;
-    if (claveActual!== clave){
-       $("#err_txtClaveActual").html("La clave actual no coincide..")
+    if (claveActual!== claveg){
+       $("#err_txtClaveActual").html("La clave original no coincide..");
     }
     else {
         $("#err_txtClaveActual").html("");
@@ -100,7 +129,7 @@ function cambiarClave (){//Cambiar calve usuario
     if(claveNueva!==repetirClave || claveNueva==claveActual || claveNueva=="" ){
         
         
-        $("#err_txtClaveNuevaRep").html("La claves no coinciden..")
+        $("#err_txtClaveNuevaRep").html("La claves no coinciden y no pueden estar vacios....")
         $("#err_txtMalClave").html("Recuerde la clave nueva no puede ser la actual..");
         
     }
@@ -115,43 +144,47 @@ function cambiarClave (){//Cambiar calve usuario
 
     
     if(cambiar && nueva && $("#radPaciente").prop('checked')){
+        
        var pos=0,esta=false;
         while(pos<=pacientes.length-1 && !esta){
-        var tmpPersona = pacientes[pos];
-        if(tmpPersona['clave'] == clave && tmpPersona['numero'] == usuario){
+        var tmpPersonapaciente = pacientes[pos];
+        if(tmpPersonapaciente['clave'] == claveg && tmpPersonapaciente['documento'] == usuariog){
             esta=true;
-            tmpPersona['clave']=claveNueva;
+            tmpPersonapaciente['clave']=claveNueva;
             
         }
-        pos++
+        pos++;
     }
         $("#txtClaveNuevaRep").val("");
         $("#txtClaveActual").val("");
         $("#txtClaveNueva").val("");
-        alert("Cambiaste la clave exitosamente.")
-        
+        alert("Cambiaste la clave exitosamente.");
+          $("#tbCambioclave").hide();
+         
     }
+
     else if (cambiar && nueva && $("#radMedico").prop('checked')){
         var pos=0,esta=false;
         while(pos<=medicos.length-1 && !esta){
-        var tmpPersona = medicos[pos];
-        if(tmpPersona['clave'] == clave && tmpPersona['numero'] == usuario){
+        var tmpPersonamedico = medicos[pos];
+        if(tmpPersonamedico['clave'] == claveg && tmpPersonamedico['numero'] == usuariog){
             esta=true;
-            tmpPersona['clave']=claveNueva;
+            tmpPersonamedico['clave']=claveNueva;
             
         }
-        pos++
+        pos++;
     }
         $("#txtClaveNuevaRep").val("");
         $("#txtClaveActual").val("");
         $("#txtClaveNueva").val("");
         alert("Cambiaste la clave exitosamente.")
-        
-    }
-    else{
-        alert("Verifique que todos los campos esten completos")
-        
+   $("#tbCambioclave").hide();
+     
     }
     
-}
- 
+    
+    else{
+        alert("Verifique que todos los campos esten completos");
+        
+    }
+    }
