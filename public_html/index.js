@@ -241,26 +241,24 @@ function BuscarPaciente (){
 }
 
 function Cambiarmedico (){
-    pos=0,pos1=0,encontre=false,medicoC=0,MedicoCabecera=0,tmpMedico=0;
+    pos=0,pos1=0,encontre=false,medicoC=0,MedicoCabecera=0,tmpMedico=0,salir=false;
     while(pos<=pacientes.length-1 && !encontre){
         medicoC=pacientes[pos];
         if(medicoC['documento']==usuariog){
             MedicoCabecera=medicoC['medicoCabecera'];
-            while (pos1<=medicos.length-1 && !encontre){
+            while (pos1<=medicos.length-1 && !salir){
                 tmpMedico=medicos[pos1];
-                if (MedicoCabecera==medicos['numero']){
+                if (MedicoCabecera==tmpMedico['numero']){
                     $("#divmedicoCabecera").html("<strong>"+tmpMedico['nombre']+"</strong>")
-                    encontre=false;
+                    salir=true;
+                    encontre=true;
                 }
+                pos1++;  
             }
-            pos1++;
+           
+        
+        }  
         pos++;
-        }
-       
-    
-    
-    
-    
-    
     }
+    
 }  
