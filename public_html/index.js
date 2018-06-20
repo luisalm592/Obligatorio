@@ -10,6 +10,11 @@ function inicializo (){
     $("#radPaciente").click(checkBoxPaciente1);
     $("#btIngresar").click(ingresarLogin);
     $("#btCambiarClave").click(cambiarClave);
+    $("#radcedulapac").click(checkBoxhistorialpac1);
+    $("#radnombrepac").click(checkBoxhistorialpac2);
+    $("#bthistorialpaciente").click(BuscarPaciente);
+    
+    
  
     
 }
@@ -48,6 +53,26 @@ function checkBoxPaciente1 (){/*Paciente*/
  
       }
  }
+ function   checkBoxhistorialpac1(){//Checkbox paciente 1
+         
+ if( $("#radcedulapac").prop('checked',true)) {  
+      $("#radnombrepac").prop('checked',false);
+      $("#txtcedula").prop('disabled',false)
+      }
+     }
+function checkBoxhistorialpac2 (){//Checkbox paciente 2
+ if( $("#radnombrepac").prop('checked',true)) {  
+      
+      $("#radcedulapac").prop('checked',false);
+      $("#txtnombre").prop('disabled',false)
+ 
+      }
+ }
+ 
+ 
+ 
+ 
+ 
  
 var usuariog =$("#txtUsuario").val();//Defino estas dos variables in "var" para que sean globales.
 var claveg =$("#txtClave").val();
@@ -55,7 +80,7 @@ var claveg =$("#txtClave").val();
 function ingresarLogin (){
 
     
-var usuario =$("#txtUsuario").val();//Defino estas dos variables in "var" para que sean globales.
+var usuario =$("#txtUsuario").val();//Defino estas dos variables sin "var" para que sean globales.
 var clave =$("#txtClave").val();
 
 
@@ -188,3 +213,30 @@ function cambiarClave (){//Cambiar calve usuario
         
     }
     }
+
+function BuscarPaciente (){
+    var cedula = $("#txtcedula").val();
+    var nombre =$("#txtnombre").val();
+    var resultado=0;
+    if ($("#radcedulapac").prop('checked')){
+        resultado =buscarPorCedula(cedula);
+        if (resultado){
+           alert("encontre") ;
+        }
+    }    
+    else if ($("#radnombrepac").prop('checked')){
+        resultado =buscarPorNombre(nombre);
+        if (resultado){
+            alert("encontre"); 
+            
+        }
+        else{
+            alert("error");  
+        }
+
+}
+   
+    
+    
+    }
+    

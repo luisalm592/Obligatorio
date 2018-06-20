@@ -25,3 +25,28 @@ function verificoLoginMedico(pUsu,pPass){
     }
     return esta;
 }
+
+function buscarPorCedula (pCedula){
+    var encontre=false,tmpPaciente=0;
+    var pos=0;
+    while (pos<=pacientes.length-1 && !encontre){
+        tmpPaciente=pacientes[pos];
+        if (tmpPaciente['documento']==pCedula){
+            encontre=true;
+        }
+        pos++;
+    }
+    return encontre;
+}
+function buscarPorNombre (pNombre){
+    var encontre=false,tmpPaciente=0;
+    var pos=0;
+    while (pos<=pacientes.length-1 && !encontre){
+        tmpPaciente=pacientes[pos];
+        if (tmpPaciente['nombre']==pNombre){
+            encontre=true;
+        }
+        pos++;
+    }
+    return encontre;
+}

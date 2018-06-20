@@ -244,7 +244,7 @@ open('pagina.html','','top=300,left=300,width=600,height=600') ;
         <tr>
           <th width="130" align="left" bgcolor="#CCCCCC" scope="col">Ingresar Por:</th>
           <th width="320" bgcolor="#FFFFFF" scope="col">
-              <input type="radio" id="radcedulapac" checked="" >CedulaPac.
+              <input type="radio" id="radcedulapac" >CedulaPac.
               <input type="radio" id="radnombrepac" >NombrePac.
           </th>
         </tr>
@@ -254,7 +254,7 @@ open('pagina.html','','top=300,left=300,width=600,height=600') ;
         <tr>
           <th width="130" align="left" bgcolor="#CCCCCC" scope="col">Cedula Identidad:</th>
           <th width="320" bgcolor="#FFFFFF" scope="col">
-            <input type="text" id="txtcedula">   
+              <input type="text" id="txtcedula" disabled="">   
           </th>
         </tr>
       </table>
@@ -263,7 +263,16 @@ open('pagina.html','','top=300,left=300,width=600,height=600') ;
         <tr>
           <th width="130" align="left" bgcolor="#CCCCCC" scope="col">Nombre:</th>
           <th width="317" bgcolor="#FFFFFF" scope="col">
-              <input type="text" id="txtnombre">   
+              <input type="text" id="txtnombre" disabled="">   
+              
+          </th>
+        </tr>
+        
+               <table width="500" border="1" align="center" >
+        <tr>
+          <th width="130" align="left" bgcolor="#CCCCCC" scope="col"></th>
+          <th width="317" bgcolor="#FFFFFF" scope="col">
+              <input type="button" id="bthistorialpaciente" value="BUSCAR">   
               
           </th>
         </tr>
@@ -416,7 +425,7 @@ open('pagina.html','','top=300,left=300,width=600,height=600') ;
           <th width="320" bgcolor="#FFFFFF" scope="col">
               <input type="radio" id="radcedulapaccons" checked="" >CedulaPac.
               <input type="radio" id="radnombrepaccons" >NombrePac.
-          </th>
+               </th>
         </tr>
       </table>
            
@@ -437,6 +446,11 @@ open('pagina.html','','top=300,left=300,width=600,height=600') ;
               
           </th>
         </tr>
+  
+        
+        
+        
+        
       </table>
          <br>
        <br>
