@@ -13,7 +13,7 @@ function inicializo (){
     $("#radcedulapac").click(checkBoxhistorialpac1);
     $("#radnombrepac").click(checkBoxhistorialpac2);
     $("#bthistorialpaciente").click(BuscarPaciente);
-    
+    $("#tbCambioMedico").click(Cambiarmedico);
     
  
     
@@ -214,7 +214,7 @@ function cambiarClave (){//Cambiar calve usuario
     }
     }
 
-function BuscarPaciente (){
+function BuscarPaciente (){//NO FUNCIONA
     var cedula = $("#txtcedula").val();
     var nombre =$("#txtnombre").val();
     var resultado=0;
@@ -234,9 +234,9 @@ function BuscarPaciente (){
             alert("error");  
         }
 
-}
+    }
    
     
     
-    }
-    
+}
+

@@ -5,7 +5,7 @@
 var pacientes =[
                 {documento:11,
                  nombre: "Juan Perez",
-                 medicoCabecera: 332154,
+                 medicoCabecera: 11,
                  clave:"cc"                  
                 },
                 {documento: 32148762,

@@ -9,12 +9,12 @@ var medicos = [
                  especialidad:"Medicina General",
                  clave:"c"
                 },
-                {numero:2,
+                {numero:11,
                  nombre:"Carlos Saravia",
                  especialidad:"Oncologia",
                  clave:"cc147s"
                 },
-                {numero:3,
+                {numero:22,
                  nombre:"Carolina Martinez",
                  especialidad:"Pediatria",
                  clave:"845847"
