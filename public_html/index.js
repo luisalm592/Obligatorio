@@ -214,7 +214,7 @@ function cambiarClave (){//Cambiar calve usuario
     }
     }
 
-function BuscarPaciente (){//NO FUNCIONA
+function BuscarPaciente (){
     var cedula = $("#txtcedula").val();
     var nombre =$("#txtnombre").val();
     var resultado=0;
@@ -240,3 +240,27 @@ function BuscarPaciente (){//NO FUNCIONA
     
 }
 
+function Cambiarmedico (){
+    pos=0,pos1=0,encontre=false,medicoC=0,MedicoCabecera=0,tmpMedico=0;
+    while(pos<=pacientes.length-1 && !encontre){
+        medicoC=pacientes[pos];
+        if(medicoC['documento']==usuariog){
+            MedicoCabecera=medicoC['medicoCabecera'];
+            while (pos1<=medicos.length-1 && !encontre){
+                tmpMedico=medicos[pos1];
+                if (MedicoCabecera==medicos['numero']){
+                    $("#divmedicoCabecera").html("<strong>"+tmpMedico['nombre']+"</strong>")
+                    encontre=false;
+                }
+            }
+            pos1++;
+        pos++;
+        }
+       
+    
+    
+    
+    
+    
+    }
+}  
